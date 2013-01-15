@@ -19,6 +19,8 @@ namespace OneStep
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Sprite testSprite = new Sprite();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,6 +36,7 @@ namespace OneStep
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            testSprite.Position = Vector2.Zero;
 
             base.Initialize();
         }
@@ -48,6 +51,7 @@ namespace OneStep
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            testSprite.Texture = Content.Load<Texture2D>("img_1");
         }
 
         /// <summary>
@@ -84,6 +88,11 @@ namespace OneStep
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            testSprite.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
